@@ -1,0 +1,606 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+header {
+  background-image: linear-gradient(rgba(3, 2, 0, 0.5), rgba(3, 2, 0, 0.5)),
+    url("https://haipedia.github.io/COSC307-Group-Assignment-/Gemini_Generated_Image_jh4nwqjh4nwqjh4n.png");
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+nav {
+  padding: 2% 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img {
+  width: 100px;
+}
+.nav-links {
+  text-align: right;
+  flex: 1;
+}
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.nav-links ul li a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #ffd700;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+.text-box {
+  width: 90%;
+  color: aliceblue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.text-box h1 {
+  font-size: 50px;
+}
+.text-box p {
+  margin: 10px 0 40px;
+}
+.hero-btn {
+  position: relative;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+.hero-btn:hover {
+  border: 1px solid;
+  color: #fff;
+  background: #ffd700;
+  transition: 1s;
+}
+/* 1. HIDE the SVG menu icon by default (for Laptops/Desktops) */
+.menu-icon,
+.close-icon {
+  display: none;
+}
+
+/* Here, we use @media query to make our webpage rather responsive even on a smaller screen devices */
+@media (max-width: 700px) {
+  .text-box h1 {
+    font-size: 21px;
+  }
+  .text-box p {
+    font-size: 13px;
+  }
+  /* 1. MAKE THE HAMBURGER VISIBLE */
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    margin: 10px 20px;
+    float: right; /* Puts it on the right side */
+  }
+  .close-icon {
+    display: block;
+    width: 30px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 700px) {
+    .nav-links {
+      position: fixed;
+      /* 1. GLASS EFFECT: Dark Green but very transparent (0.4 opacity) */
+      background: rgba(30, 50, 20, 0.4);
+
+      /* 2. THE BLUR: This blurs the image behind the menu */
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px); /* For Safari phones */
+
+      height: 100vh;
+      width: 250px;
+      top: 0;
+      right: -250px; /* Hide it (match the width) */
+      text-align: left;
+      z-index: 999;
+
+      /* 3. TRANSITION: A smooth "cubic-bezier" slide (Luxury feel) */
+      transition: right 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+
+      padding: 30px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Fixing the links inside so they don't look squashed */
+  .nav-links ul li {
+    display: block;
+    margin: 25px 0;
+  }
+
+  .nav-links ul li a {
+    color: white;
+    font-size: 12px;
+  }
+}
+
+/* Attractions section */
+#Attractions {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+#Attractions h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #556b2f;
+}
+#Attractions p {
+  color: #555;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  padding: 10px;
+}
+.row {
+  display: flex;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+.attractions-col {
+  background: #ffffff;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  flex-basis: 31%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.attractions-col img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.attractions-col h3 {
+  color: #556b2f;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 15px;
+}
+.attractions-col span {
+  font-size: x-small;
+}
+.attractions-col:hover {
+  box-shadow: 0 0 20px 0px rgba(19, 131, 43, 0.2);
+  transform: translateY(-10px);
+}
+@media ((max-width: 700px)) {
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Food and culture section style  */
+#Food-Culture {
+  width: 80%;
+  text-align: center;
+  padding-top: 50px;
+  margin: auto;
+}
+/* Container Spacing */
+.culture-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9; /* Light grey to separate from white attractions */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  color: #556b2f; /* We us this just to make it match our Olive Green Theme */
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* The Zig-Zag Rows */
+.culture-row {
+  display: flex;
+  align-items: center; /* Centers text vertically next to our image */
+  justify-content: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto 80px auto; /* Spacing between rows */
+}
+
+/* The "Reverse" Class flips the order */
+.culture-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image Styling */
+.culture-image {
+  flex: 1;
+}
+
+.culture-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.culture-image img:hover {
+  transform: scale(1.02); /* Subtle zoom effect */
+}
+
+/* Text Content Styling */
+.culture-content {
+  flex: 1;
+}
+
+.culture-content h3 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.culture-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .culture-row,
+  .culture-row.reverse {
+    flex-direction: column; /* Stack them on phones */
+    text-align: center;
+  }
+}
+
+/* Gallery section */
+.gallery-section {
+  padding: 60px 20px;
+  background-color: #f4f4f4; /* Light grey contrasts with the white content above */
+}
+
+.gallery-grid {
+  display: grid;
+  /* This creates a smart grid that fits images automatically */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Image Container Styling */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images don't stretch or look weird */
+  transition: transform 0.5s ease;
+}
+
+/* Hover Effect: Zoom Image */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Hover Effect: Show Overlay Text */
+.overlay {
+  position: absolute;
+  bottom: -100%; /* Hidden off-screen initially */
+  left: 0;
+  width: 100%;
+  background: rgba(85, 107, 47, 0.9); /* Our Olive Green Theme */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  transition: bottom 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.gallery-item:hover .overlay {
+  bottom: 0; /* Slides up on hover */
+}
+
+/* --- THE MOSAIC LOGIC (Desktop Only) --- */
+@media (min-width: 768px) {
+  /* Large Square (2x2) */
+  .gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  /* Tall Portrait (1x2) */
+  .gallery-item.tall {
+    grid-row: span 2;
+  }
+
+  /* Wide Landscape (2x1) */
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+}
+
+/* Testimonials section */
+.reviews-section {
+  padding: 60px 20px;
+  background-color: #f4f4f4; /* Light Grey background */
+  text-align: center;
+}
+
+.reviews-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: white; /* Clean White Card */
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #556b2f; /* The Olive Green Accent! */
+  transition: transform 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.user-image img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #556b2f;
+}
+
+.review-text {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.stars {
+  color: #ffd700; /* Gold Stars */
+  margin-top: 10px;
+}
+
+/* Contact section */
+/* 1. The Background Hero Section */
+.contact-hero {
+  background-image: url(Final/Images/mambilla_hills.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Dark overlay to make the form pop */
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* 2. The "Glass" Form Card */
+.glass-form-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95); /* 95% White */
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px; /* Keeps it nice and narrow */
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Big soft shadow */
+}
+
+.glass-form-container h2 {
+  color: #556b2f;
+  margin-bottom: 10px;
+}
+
+.glass-form-container p {
+  color: #666666;
+  margin-bottom: 25px;
+}
+
+/* 3. The Inputs */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  font-size: 1rem;
+}
+
+/* 4. The Button (Matches our Theme) */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #556b2f; /* Olive Green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #3e4f22;
+}
+
+/* 5. The Footer (Black & Sleek like our home/header section */
+footer {
+  background-color: #2f3e26;
+  color: #f0f0f0;
+  padding: 60px 20px 20px;
+  font-size: 0.95rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* This creates exactly 4 Equal Columns */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.footer-col h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Add a small Gold line under headings for style */
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #ffd700; /* Gold */
+}
+
+.footer-col p {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* --- Social Media Links --- */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffd700; /* Gold Hover */
+  padding-left: 5px; /* Little slide effect */
+}
+
+/* --- Quick Links --- */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+/* This is a Hover Effect for our links! */
+.footer-links a:hover {
+  color: #ffd700; /* Gold Text */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Glowing effect */
+}
+
+/* --- Contact Rows --- */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+/* --- Copyright Bar --- */
+.copyright {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #445c38; /* Lighter green border */
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE: Stack them on mobile/tablets */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns on Tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* 1 Column on Phone */
+  }
+}
